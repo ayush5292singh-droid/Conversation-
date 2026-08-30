@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#020608">
+<title>JARVIS — Neural Command Core</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="grid"></div>
+<div class="scanline"></div>
+<div class="vignette"></div>
+<div id="particles"></div>
+
+<header>
+    <div class="brand">
+        <div class="brand-core"></div>
+        <div>
+            <h1>JARVIS</h1>
+            <p>NEURAL COMMAND ARCHITECTURE</p>
+        </div>
+    </div>
+
+    <div class="top-status">
+        <div>CORE <b>ONLINE</b></div>
+        <div id="clock">00:00:00</div>
+    </div>
+</header>
+
+
+<main>
+
+<!-- ================= REACTOR ================= -->
+
+<section class="reactor-section">
+
+    <div class="hud-label label1">
+        CORE 07
+        <strong>ACTIVE</strong>
+    </div>
+
+    <div class="hud-label label2">
+        NEURAL LINK
+        <strong>CONNECTED</strong>
+    </div>
+
+    <div class="hud-label label3">
+        VOICE ARRAY
+        <strong id="voiceStatus">READY</strong>
+    </div>
+
+    <div class="hud-label label4">
+        COMMANDS
+        <strong id="commandTotal">000</strong>
+    </div>
+
+
+    <div class="mechanism">
+
+        <div class="ring ring1"></div>
+        <div class="ring ring2"></div>
+        <div class="ring ring3"></div>
+        <div class="ring ring4"></div>
+        <div class="ring ring5"></div>
+        <div class="ring ring6"></div>
+        <div class="ring ring7"></div>
+        <div class="ring ring8"></div>
+
+        <div class="gear gear1">✦</div>
+        <div class="gear gear2">✦</div>
+        <div class="gear gear3">✦</div>
+        <div class="gear gear4">✦</div>
+
+        <div class="orbit orbit1">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="orbit orbit2">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="radar"></div>
+
+        <div class="energy-line line1"></div>
+        <div class="energy-line line2"></div>
+        <div class="energy-line line3"></div>
+        <div class="energy-line line4"></div>
+
+        <div class="node node1"></div>
+        <div class="node node2"></div>
+        <div class="node node3"></div>
+        <div class="node node4"></div>
+        <div class="node node5"></div>
+        <div class="node node6"></div>
+        <div class="node node7"></div>
+        <div class="node node8"></div>
+
+
+        <div class="core">
+
+            <div class="core-ring"></div>
+            <div class="core-energy"></div>
+
+            <div class="core-content">
+
+                <div class="jarvis-name">
+                    JARVIS
+                </div>
+
+                <div id="state">
+                    SYSTEM READY
+                </div>
+
+                <button id="micButton">
+                    <span id="micIcon">◉</span>
+                    <span id="micText">SPEAK</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= VOICE ================= -->
+
+<section class="panel">
+
+    <div class="panel-heading">
+
+        <div>
+            <small>VOICE INTERFACE // 01</small>
+            <h2>NEURAL AUDIO CHANNEL</h2>
+        </div>
+
+        <span id="micState">
+            MIC OFF
+        </span>
+
+    </div>
+
+
+    <div class="terminal">
+
+        <div class="terminal-top">
+            <span>LIVE TRANSCRIPTION</span>
+            <span id="recognitionState">
+                STANDBY
+            </span>
+        </div>
+
+        <div id="transcript">
+            Say "Jarvis" and give your command...
+        </div>
+
+        <div class="wave" id="wave">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i>
+        </div>
+
+    </div>
+
+
+    <div class="examples">
+
+        <span>TRY</span>
+
+        <b>"Jarvis, search football"</b>
+
+        <b>"Jarvis, open Wikipedia"</b>
+
+        <b>"Jarvis, increase brightness"</b>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MANUAL ================= -->
+
+<section class="panel">
+
+    <div class="panel-heading">
+
+        <div>
+            <small>DIRECT COMMAND // 02</small>
+            <h2>MANUAL NEURAL INPUT</h2>
+        </div>
+
+        <span>READY</span>
+
+    </div>
+
+
+    <div class="command-box">
+
+        <label>JARVIS://</label>
+
+        <input
+            id="commandInput"
+            type="text"
+            placeholder="Type command..."
+            autocomplete="off"
+        >
+
+        <button id="sendButton">
+            SEND
+        </button>
+
+    </div>
+
+    <div class="input-help">
+        ENTER TO EXECUTE
+    </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+
+    <div class="panel diagnostics">
+
+        <small>CORE TELEMETRY // 03</small>
+
+        <h2>LIVE DIAGNOSTICS</h2>
+
+
+        <div class="metric">
+
+            <div class="metric-title">
+                <span>VOICE ENGINE</span>
+                <b id="voiceEngine">ONLINE</b>
+            </div>
+
+            <div class="bar">
+                <i id="voiceBar"></i>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-title">
+                <span>NEURAL PROCESSOR</span>
+                <b id="neuralValue">94%</b>
+            </div>
+
+            <div class="bar">
+                <i id="neuralBar"></i>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-title">
+                <span>COMMAND ENGINE</span>
+                <b>ONLINE</b>
+            </div>
+
+            <div class="bar">
+                <i style="width:97%"></i>
+            </div>
+
+        </div>
+
+
+        <div class="metric">
+
+            <div class="metric-title">
+                <span>WEB NAVIGATION</span>
+                <b>READY</b>
+            </div>
+
+            <div class="bar">
+                <i style="width:92%"></i>
+            </div>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div>
+                <small>UPTIME</small>
+                <strong id="uptime">00:00:00</strong>
+            </div>
+
+            <div>
+                <small>COMMANDS</small>
+                <strong id="statCommands">0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="panel log-panel">
+
+        <div class="log-heading">
+
+            <div>
+                <small>NEURAL MEMORY // 04</small>
+                <h2>COMMAND STREAM</h2>
+            </div>
+
+            <button id="clearLog">
+                CLEAR
+            </button>
+
+        </div>
+
+        <div id="log"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTROLS ================= -->
+
+<section class="control-panel">
+
+    <button id="wakeButton">
+        ◉ WAKE MODE: OFF
+    </button>
+
+    <button id="stopMic">
+        STOP MICROPHONE
+    </button>
+
+    <button id="stopSpeech">
+        STOP SPEECH
+    </button>
+
+</section>
+
+
+</main>
+
+
+<footer>
+    JARVIS CORE v4.0
+    <span>•</span>
+    VOICE CONTROL
+    <span>•</span>
+    AUTOMATIC EXECUTION
+    <span>•</span>
+    WEB NAVIGATION
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
